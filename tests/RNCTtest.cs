@@ -12,39 +12,21 @@ namespace RomanNumerals.Test {
             c = new RomanNumeralConverter();
         }
 
-        [Test]
-        public void shouldReturnZeroWhenGivenBadInput() {
-            Assert.AreEqual(0, c.convert("BAD"));
+        [TestCaseSource("getRomanAndArabicPairs")]
+        public void shouldReturnTheExpectedOutputGivenTheProvidedInput(string providedInput, int expectedOutput) {
+            Assert.AreEqual(expectedOutput, c.convert(providedInput));
         }
 
-        [Test]
-        public void shouldReturn1WhenGivenI() {
-            Assert.AreEqual(1, c.convert("I"));
-        }
-
-        [Test]
-        public void shouldReturn2WhenGivenII() {
-            Assert.AreEqual(2, c.convert("II"));
-        }
-
-        [Test]
-        public void shouldReturn3WhenGivenIII() {
-            Assert.AreEqual(3, c.convert("III"));
-        }
-
-        [Test]
-        public void shouldReturn4WhenGivenIV() {
-            Assert.AreEqual(4, c.convert("IV"));
-        }
-
-        [Test]
-        public void shouldReturn5WhenGivenV() {
-            Assert.AreEqual(5, c.convert("V"));
-        }
-
-        [Test]
-        public void shouldReturn6WhenGivenVI() {
-            Assert.AreEqual(6, c.convert("VI"));
+        public object[] getRomanAndArabicPairs() {
+            return new object[] {
+                new object[] {"BAD", 0,},
+                new object[] {"I", 1,},
+                new object[] {"II", 2,},
+                new object[] {"III", 3,},
+                new object[] {"IV", 4,},
+                new object[] {"V", 5,},
+                new object[] {"VI", 6,},
+            };
         }
     }
 }
