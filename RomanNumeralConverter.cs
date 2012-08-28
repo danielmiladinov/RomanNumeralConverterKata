@@ -17,10 +17,21 @@ namespace RomanNumerals.Converter {
         public int convert(string numeral) {
             int sum = 0;
             int previousSymbolValue = 0;
+            int timesSameSymbolWasSeen = 1;
 
             foreach (char s in numeral) {
                 if (symbols.ContainsKey(s)) {
                     int symbolValue = symbols[s];
+
+                    if (symbolValue == previousSymbolValue) {
+                        timesSameSymbolWasSeen++;
+                    } else {
+                        timesSameSymbolWasSeen = 1;
+                    }
+
+                    if (timesSameSymbolWasSeen > 3) {
+                        return 0;
+                    }
 
                     if (sum > 0 && symbolValue > previousSymbolValue) {
                         sum += (symbolValue - (previousSymbolValue * 2));
