@@ -21,6 +21,8 @@ namespace RomanNumerals.Converter {
                 return 6;
             } else if (numeral == "VII") {
                 return 7;
+            } else if (numeral == "VIII") {
+                return 8;
             }
             return 0;
         }
