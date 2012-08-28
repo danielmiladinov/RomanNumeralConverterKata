@@ -15,9 +15,10 @@ namespace RomanNumerals.Converter {
                 return 3;
             } else if (numeral == "IV") {
                 return 4;
+            } else if (numeral == "V") {
+                return 5;
             }
             return 0;
         }
     }
 }
-
