@@ -7,7 +7,7 @@ namespace RomanNumerals.Test {
     public class RNCTest {
 
         [TestCaseSource("getRomanAndArabicPairs")]
-        public void shouldReturnTheExpectedOutputGivenTheProvidedInput(string providedInput, int expectedOutput) {
+        public void romanToArabicShouldReturnTheExpectedOutputGivenTheProvidedInput(string providedInput, int expectedOutput) {
             Assert.AreEqual(expectedOutput, RomanNumeralConverter.romanToArabic(providedInput));
         }
 
