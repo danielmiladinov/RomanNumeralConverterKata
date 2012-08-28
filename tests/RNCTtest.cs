@@ -5,16 +5,10 @@ namespace RomanNumerals.Test {
 
     [TestFixture]
     public class RNCTest {
-        private RomanNumeralConverter c;
-
-        [SetUp]
-        public void setUp() {
-            c = new RomanNumeralConverter();
-        }
 
         [TestCaseSource("getRomanAndArabicPairs")]
         public void shouldReturnTheExpectedOutputGivenTheProvidedInput(string providedInput, int expectedOutput) {
-            Assert.AreEqual(expectedOutput, c.convert(providedInput));
+            Assert.AreEqual(expectedOutput, RomanNumeralConverter.convert(providedInput));
         }
 
         public object[] getRomanAndArabicPairs() {
