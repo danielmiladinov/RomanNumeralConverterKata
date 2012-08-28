@@ -13,6 +13,8 @@ namespace RomanNumerals.Converter {
                 return 2;
             } else if (numeral == "III") {
                 return 3;
+            } else if (numeral == "IV") {
+                return 4;
             }
             return 0;
         }
