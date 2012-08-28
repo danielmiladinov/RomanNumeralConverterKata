@@ -8,7 +8,7 @@ namespace RomanNumerals.Test {
 
         [TestCaseSource("getRomanAndArabicPairs")]
         public void shouldReturnTheExpectedOutputGivenTheProvidedInput(string providedInput, int expectedOutput) {
-            Assert.AreEqual(expectedOutput, RomanNumeralConverter.convert(providedInput));
+            Assert.AreEqual(expectedOutput, RomanNumeralConverter.romanToArabic(providedInput));
         }
 
         public object[] getRomanAndArabicPairs() {

@@ -14,7 +14,7 @@ namespace RomanNumerals.Converter {
             {'M', 1000},
         };
 
-        public static int convert(string numeral) {
+        public static int romanToArabic(string numeral) {
             int sum = 0;
             int previousSymbolValue = 0;
             int timesSameSymbolWasSeen = 1;
