@@ -1,34 +1,40 @@
 using System;
+using System.Collections.Generic;
 
 namespace RomanNumerals.Converter {
 
     public class RomanNumeralConverter {
+        private Dictionary<char, int> symbols;
+
         public RomanNumeralConverter() {
+            symbols = new Dictionary<char, int> {
+                {'I', 1},
+                {'V', 5},
+                {'X', 10}
+            };
         }
 
         public int convert(string numeral) {
-            if (numeral == "I") {
-                return 1;
-            } else if (numeral == "II") {
-                return 2;
-            } else if (numeral == "III") {
-                return 3;
-            } else if (numeral == "IV") {
-                return 4;
-            } else if (numeral == "V") {
-                return 5;
-            } else if (numeral == "VI") {
-                return 6;
-            } else if (numeral == "VII") {
-                return 7;
-            } else if (numeral == "VIII") {
-                return 8;
-            } else if (numeral == "IX") {
-                return 9;
-            } else if (numeral == "X") {
-                return 10;
+            int sum = 0;
+            int previousSymbolValue = 0;
+
+            foreach (char s in numeral) {
+                if (symbols.ContainsKey(s)) {
+                    int symbolValue = symbols[s];
+
+                    if (sum > 0 && symbolValue > previousSymbolValue) {
+                        sum += (symbolValue - (previousSymbolValue * 2));
+                    } else {
+                        sum += symbolValue;
+                    }
+
+                    previousSymbolValue = symbolValue;
+                } else {
+                    return 0;
+                }
             }
-            return 0;
+
+            return sum;
         }
     }
 }
