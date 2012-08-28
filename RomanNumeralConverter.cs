@@ -53,7 +53,11 @@ namespace RomanNumerals.Converter {
             var roman = new StringBuilder();
 
             if (arabic > 3) {
-                roman.Append("IV");
+                if (arabic == 4) {
+                    roman.Append("IV");
+                } else {
+                    roman.Append("V");
+                }
             } else {
                 while (arabic-- > 0) {
                     roman.Append("I");
