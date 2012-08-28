@@ -11,5 +11,11 @@ namespace RomanNumerals.Test {
             var c = new RomanNumeralConverter();
             Assert.AreEqual(0, c.convert("BAD"));
         }
+
+        [Test]
+        public void shouldReturn1WhenGivenI() {
+            var c = new RomanNumeralConverter();
+            Assert.AreEqual(1, c.convert("I"));
+        }
     }
 }

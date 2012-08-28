@@ -7,6 +7,9 @@ namespace RomanNumerals.Converter {
         }
 
         public int convert(string numeral) {
+            if (numeral == "I") {
+                return 1;
+            }
             return 0;
         }
     }
