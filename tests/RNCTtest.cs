@@ -60,6 +60,7 @@ namespace RomanNumerals.Test {
                 new object[] {"XXXVIII", 38,},
                 new object[] {"XXXIX", 39,},
                 new object[] {"XXXX", 0,},
+                new object[] {"XL", 40,},
             };
         }
     }

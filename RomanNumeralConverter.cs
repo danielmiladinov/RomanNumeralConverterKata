@@ -10,7 +10,8 @@ namespace RomanNumerals.Converter {
             symbols = new Dictionary<char, int> {
                 {'I', 1},
                 {'V', 5},
-                {'X', 10}
+                {'X', 10},
+                {'L', 50},
             };
         }
 
