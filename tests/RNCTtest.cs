@@ -2026,6 +2026,7 @@ namespace RomanNumerals.Test {
         public object[] getArabicAndRomanPairs() {
             return new object[] {
                 new object[] {1, "I",},
+                new object[] {2, "II",},
             };
         }
     }
