@@ -26,5 +26,10 @@ namespace RomanNumerals.Test {
         public void shouldReturn2WhenGivenII() {
             Assert.AreEqual(2, c.convert("II"));
         }
+
+        [Test]
+        public void shouldReturn3WhenGivenIII() {
+            Assert.AreEqual(3, c.convert("III"));
+        }
     }
 }

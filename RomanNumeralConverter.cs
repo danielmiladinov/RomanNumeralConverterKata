@@ -11,6 +11,8 @@ namespace RomanNumerals.Converter {
                 return 1;
             } else if (numeral == "II") {
                 return 2;
+            } else if (numeral == "III") {
+                return 3;
             }
             return 0;
         }
