@@ -25,6 +25,8 @@ namespace RomanNumerals.Converter {
                 return 8;
             } else if (numeral == "IX") {
                 return 9;
+            } else if (numeral == "X") {
+                return 10;
             }
             return 0;
         }
