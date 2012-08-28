@@ -26,6 +26,7 @@ namespace RomanNumerals.Test {
                 new object[] {"IV", 4,},
                 new object[] {"V", 5,},
                 new object[] {"VI", 6,},
+                new object[] {"VII", 7,},
             };
         }
     }
