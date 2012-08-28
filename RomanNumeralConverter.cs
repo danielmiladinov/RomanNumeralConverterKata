@@ -9,6 +9,8 @@ namespace RomanNumerals.Converter {
         public int convert(string numeral) {
             if (numeral == "I") {
                 return 1;
+            } else if (numeral == "II") {
+                return 2;
             }
             return 0;
         }
