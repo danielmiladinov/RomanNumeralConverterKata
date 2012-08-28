@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Collections.Generic;
 
 namespace RomanNumerals.Converter {
@@ -49,10 +50,13 @@ namespace RomanNumerals.Converter {
         }
 
         public static string arabicToRoman(int arabic) {
-            if (arabic == 2) {
-                return "II";
+            var roman = new StringBuilder();
+
+            while (arabic-- > 0) {
+                roman.Append("I");
             }
-            return "I";
+
+            return roman.ToString();
         }
     }
 }
