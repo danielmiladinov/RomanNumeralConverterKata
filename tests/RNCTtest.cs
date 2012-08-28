@@ -2017,5 +2017,16 @@ namespace RomanNumerals.Test {
                 new object[] {"MM", 2000,},
             };
         }
+
+        [TestCaseSource("getArabicAndRomanPairs")]
+        public void arabicToRomanShouldReturnIWhenGiven1(int providedInput, string expectedOutput) {
+            Assert.AreEqual(expectedOutput, RomanNumeralConverter.arabicToRoman(providedInput));
+        }
+
+        public object[] getArabicAndRomanPairs() {
+            return new object[] {
+                new object[] {1, "I",},
+            };
+        }
     }
 }

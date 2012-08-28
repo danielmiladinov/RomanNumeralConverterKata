@@ -47,5 +47,9 @@ namespace RomanNumerals.Converter {
 
             return sum;
         }
+
+        public static string arabicToRoman(int arabic) {
+            return "I";
+        }
     }
 }
