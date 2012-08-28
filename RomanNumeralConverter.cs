@@ -52,8 +52,12 @@ namespace RomanNumerals.Converter {
         public static string arabicToRoman(int arabic) {
             var roman = new StringBuilder();
 
-            while (arabic-- > 0) {
-                roman.Append("I");
+            if (arabic > 3) {
+                roman.Append("IV");
+            } else {
+                while (arabic-- > 0) {
+                    roman.Append("I");
+                }
             }
 
             return roman.ToString();
