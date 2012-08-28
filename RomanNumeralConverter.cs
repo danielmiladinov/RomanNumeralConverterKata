@@ -72,67 +72,32 @@ namespace RomanNumerals.Converter {
     }
 
     class SymbolPattern {
-        private string onesSymbol;
-        private string fivesSymbol;
-        private string tensSymbol;
+        private Dictionary<int, string> symbolTable;
 
         public SymbolPattern(
             string onesSymbol,
             string fivesSymbol = null,
             string tensSymbol = null
         ) {
-            this.onesSymbol = onesSymbol;
-            this.fivesSymbol = fivesSymbol;
-            this.tensSymbol = tensSymbol;
+            symbolTable = new Dictionary<int, string> {
+                {1, String.Format("{0}", onesSymbol)},
+                {2, String.Format("{0}{0}", onesSymbol)},
+                {3, String.Format("{0}{0}{0}", onesSymbol)},
+                {4, (fivesSymbol != null) ? String.Format("{0}{1}", onesSymbol, fivesSymbol) : ""},
+                {5, (fivesSymbol != null) ? String.Format("{0}", fivesSymbol) : ""},
+                {6, (fivesSymbol != null) ? String.Format("{0}{1}", fivesSymbol, onesSymbol) : ""},
+                {7, (fivesSymbol != null) ? String.Format("{0}{1}{1}", fivesSymbol, onesSymbol) : ""},
+                {8, (fivesSymbol != null) ? String.Format("{0}{1}{1}{1}", fivesSymbol, onesSymbol) : ""},
+                {9, (! (fivesSymbol == null || tensSymbol == null)) ? String.Format("{0}{1}", onesSymbol, tensSymbol) : ""},
+            };
         }
 
         public string getSymbol(int value) {
-            switch (value) {
-                case 1: return String.Format("{0}", onesSymbol);
-                case 2: return String.Format("{0}{0}", onesSymbol);
-                case 3: return String.Format("{0}{0}{0}", onesSymbol);
-
-                case 4:
-                    if (fivesSymbol != null) {
-                        return String.Format("{0}{1}", onesSymbol, fivesSymbol);
-                    }
-                    break;
-
-                case 5:
-                    if (fivesSymbol != null) {
-                        return String.Format("{0}", fivesSymbol);
-                    }
-                    break;
-
-                case 6:
-                    if (fivesSymbol != null) {
-                        return String.Format("{0}{1}", fivesSymbol, onesSymbol);
-                    }
-                    break;
-
-                case 7:
-                    if (fivesSymbol != null) {
-                        return String.Format("{0}{1}{1}", fivesSymbol, onesSymbol);
-                    }
-                    break;
-
-                case 8:
-                    if (fivesSymbol != null) {
-                        return String.Format("{0}{1}{1}{1}", fivesSymbol, onesSymbol);
-                    }
-                    break;
-
-                case 9:
-                    if (! (fivesSymbol == null || tensSymbol == null)) {
-                        return String.Format("{0}{1}", onesSymbol, tensSymbol);
-                    }
-                    break;
-
-                default:
-                    return "";
+            if (symbolTable.ContainsKey(value)) {
+                return symbolTable[value];
+            } else {
+                return "";
             }
-
-            return "";
         }
     }
 }
