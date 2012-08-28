@@ -55,8 +55,10 @@ namespace RomanNumerals.Converter {
             if (arabic > 3) {
                 if (arabic == 4) {
                     roman.Append("IV");
-                } else {
+                } else if (arabic == 5) {
                     roman.Append("V");
+                } else {
+                    roman.Append("VI");
                 }
             } else {
                 while (arabic-- > 0) {
