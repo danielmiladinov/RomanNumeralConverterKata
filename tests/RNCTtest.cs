@@ -41,5 +41,10 @@ namespace RomanNumerals.Test {
         public void shouldReturn5WhenGivenV() {
             Assert.AreEqual(5, c.convert("V"));
         }
+
+        [Test]
+        public void shouldReturn6WhenGivenVI() {
+            Assert.AreEqual(6, c.convert("VI"));
+        }
     }
 }

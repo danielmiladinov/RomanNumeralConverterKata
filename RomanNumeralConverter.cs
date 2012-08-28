@@ -17,6 +17,8 @@ namespace RomanNumerals.Converter {
                 return 4;
             } else if (numeral == "V") {
                 return 5;
+            } else if (numeral == "VI") {
+                return 6;
             }
             return 0;
         }
