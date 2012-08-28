@@ -920,6 +920,7 @@ namespace RomanNumerals.Test {
                 new object[] {"DCCCXCVII", 897,},
                 new object[] {"DCCCXCVIII", 898,},
                 new object[] {"DCCCXCIX", 899,},
+                new object[] {"CM", 900,},
             };
         }
     }
