@@ -23,6 +23,8 @@ namespace RomanNumerals.Converter {
                 return 7;
             } else if (numeral == "VIII") {
                 return 8;
+            } else if (numeral == "IX") {
+                return 9;
             }
             return 0;
         }
