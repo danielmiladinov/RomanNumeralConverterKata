@@ -420,6 +420,7 @@ namespace RomanNumerals.Test {
                 new object[] {"CCCXCVII", 397,},
                 new object[] {"CCCXCVIII", 398,},
                 new object[] {"CCCXCIX", 399,},
+                new object[] {"CD", 400,},
             };
         }
     }
