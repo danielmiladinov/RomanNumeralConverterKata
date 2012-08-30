@@ -25,13 +25,11 @@ namespace RomanNumerals.Converter {
                     int symbolValue = symbols[s];
 
                     if (symbolValue == previousSymbolValue) {
-                        timesSameSymbolWasSeen++;
+                        if (++timesSameSymbolWasSeen > 3) {
+                            return 0;
+                        }
                     } else {
                         timesSameSymbolWasSeen = 1;
-                    }
-
-                    if (timesSameSymbolWasSeen > 3) {
-                        return 0;
                     }
 
                     if (sum > 0 && symbolValue > previousSymbolValue) {
