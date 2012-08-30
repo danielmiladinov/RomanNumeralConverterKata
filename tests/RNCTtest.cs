@@ -2019,7 +2019,7 @@ namespace RomanNumerals.Test {
         }
 
         [TestCaseSource("getArabicAndRomanPairs")]
-        public void arabicToRomanShouldReturnIWhenGiven1(int providedInput, string expectedOutput) {
+        public void arabicToRomanShouldReturnTheExpectedOutputGivenTheProvidedInput(int providedInput, string expectedOutput) {
             Assert.AreEqual(expectedOutput, RomanNumeralConverter.arabicToRoman(providedInput));
         }
 
