@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RomanNumerals.Converter {
 
@@ -16,35 +17,45 @@ namespace RomanNumerals.Converter {
         };
 
         public static int romanToArabic(string numeral) {
-            int sum = 0;
-            int previousSymbolValue = 0;
-            int timesSameSymbolWasSeen = 1;
+            var reversedNumerals = numeral.ToCharArray();
+            Array.Reverse(reversedNumerals);
 
-            foreach (char s in numeral) {
-                if (symbols.ContainsKey(s)) {
-                    int symbolValue = symbols[s];
+            var reversed = new List<char>();
+            reversed.AddRange(reversedNumerals);
 
-                    if (symbolValue == previousSymbolValue) {
-                        if (++timesSameSymbolWasSeen > 3) {
-                            return 0;
-                        }
+            var numeralInvalid = reversed.Aggregate(System.Tuple.Create<bool, int, char>(false, 1, ' '),
+                (acc, nextChar) => {
+                    if (acc.Item1) {
+                        return acc;
                     } else {
-                        timesSameSymbolWasSeen = 1;
+                        var timesSameCharWasSeen = ((nextChar == acc.Item3) ? acc.Item2 + 1 : 1);
+                        return System.Tuple.Create(
+                            !symbols.ContainsKey(nextChar) || timesSameCharWasSeen > 3,
+                            timesSameCharWasSeen,
+                            nextChar
+                        );
                     }
-
-                    if (sum > 0 && symbolValue > previousSymbolValue) {
-                        sum += (symbolValue - (previousSymbolValue * 2));
-                    } else {
-                        sum += symbolValue;
-                    }
-
-                    previousSymbolValue = symbolValue;
-                } else {
-                    return 0;
                 }
+            ).Item1;
+
+            if (numeralInvalid) {
+                return 0;
             }
 
-            return sum;
+            return reversed.Aggregate(System.Tuple.Create(0, 0), (acc, nextChar) => {
+                var sumSoFar = acc.Item1;
+                var prevValue = acc.Item2;
+                var nextValue = symbols[nextChar];
+
+                if (prevValue != 0 && prevValue > nextValue) {
+                    sumSoFar -= nextValue;
+                } else {
+                    sumSoFar += nextValue;
+                }
+
+                prevValue = nextValue;
+                return System.Tuple.Create(sumSoFar, nextValue);
+            }).Item1;
         }
 
         private static SymbolPattern ones = new SymbolPattern("I", "V", "X");
